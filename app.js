@@ -10,7 +10,7 @@ app.use(express.json());
 
 io.on('connection',(socket)=>{
     console.log("user connected to scoket id: ",socket.id)
-    io.on('patient',(socket)=>{
+    socket.on('patient',(socket)=>{
         console.log("user connected to scoket id: ",socket)
     });
 });
