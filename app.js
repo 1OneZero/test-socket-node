@@ -10,11 +10,12 @@ app.use(express.json());
 
 io.on('connection',(socket)=>{
     console.log("user connected to scoket id: ",socket.id)
+    io.on('patient',(socket)=>{
+        console.log("user connected to scoket id: ",socket)
+    });
 });
 
-io.on('patient',(socket)=>{
-    console.log("user connected to scoket id: ",socket)
-});
+
 
 
 server.listen(PORT,"0.0.0.0",()=>{
