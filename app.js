@@ -13,6 +13,7 @@ io.on('connection',(socket)=>{
     socket.on('patient',(socket)=>{
         console.log("user connected to scoket id: ",socket)
     });
+    io.emmit('connected-user',{connected:"hey there buddy"});
 });
 
 
