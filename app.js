@@ -5,17 +5,15 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 
+
 app.use(express.json());
 
 
 io.on('connection',(socket)=>{
     console.log("user connected to scoket id: ",socket.id)
-    console.log("user connected to scoket id: ",socket.handshake.query);
+    // console.log("user connected to scoket id: ",socket.handshake.query);
     
-    socket.on('patient',(socket)=>{
-        console.log("user connected to scoket id: ",socket)
-     
-    });
+    socket.on('patient',(socket)=>{console.log("user connected to scoket id: ",socket) });
     socket.join("some room");
     io.in("some room").emit( "some event",{connected:"roomed"});
     io.emit(socket.token,{connected:"hey there emotted on room"});
@@ -23,8 +21,14 @@ io.on('connection',(socket)=>{
     io.emit('connected-user',{connected:"hey there buddy"});
 });
 
+app.get("/test",(req,res)=>{
 
+console.log("this is test");
+io.emit("remove",{connected:"removed"});
 
+});
+
+app.set("socket",io);
 
 
 
