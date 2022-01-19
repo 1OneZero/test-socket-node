@@ -12,9 +12,15 @@ io.on('connection',(socket)=>{
     console.log("user connected to scoket id: ",socket.id)
     socket.on('patient',(socket)=>{
         console.log("user connected to scoket id: ",socket)
+        socket.join(socket.uid);
     });
+
     io.emit('connected-user',{connected:"hey there buddy"});
 });
+
+
+
+
 
 
 
