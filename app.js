@@ -17,7 +17,7 @@ io.on('connection',(socket)=>{
      
     });
     socket.join("some room");
-    io.in("some room").emit({connected:"roomed"});
+    io.in("some room").emit( "some event",{connected:"roomed"});
     io.emit(socket.token,{connected:"hey there emotted on room"});
 
     io.emit('connected-user',{connected:"hey there buddy"});
