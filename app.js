@@ -10,6 +10,8 @@ app.use(express.json());
 
 io.on('connection',(socket)=>{
     console.log("user connected to scoket id: ",socket.id)
+    console.log("user connected to scoket id: ",socket.handshake.query);
+    
     socket.on('patient',(socket)=>{
         console.log("user connected to scoket id: ",socket)
         socket.join(socket.uid);
