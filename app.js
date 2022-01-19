@@ -14,8 +14,9 @@ io.on('connection',(socket)=>{
     
     socket.on('patient',(socket)=>{
         console.log("user connected to scoket id: ",socket)
-        socket.join(socket.uid);
+     
     });
+    socket.join(socket.token);
 
     io.emit('connected-user',{connected:"hey there buddy"});
 });
