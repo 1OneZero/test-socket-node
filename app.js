@@ -24,8 +24,9 @@ io.on('connection',(socket)=>{
 app.get("/test",(req,res)=>{
 
 console.log("this is test");
-io.emit("remove",{connected:"removed"});
 
+io.in("some room").emit("remove",{connected:"removed"});
+return res.json({message:"emitted"});
 });
 
 app.set("socket",io);
